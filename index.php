@@ -3,36 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Engineer Registration</title>
+    <title>SaaS Company Registration</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h3>Welcome to the SaaS Company. Input your details here to register</h3>   
+    <h3>Welcome to the SaaS Company. Register a Customer or Add a SaaS Product</h3>
+
+    <!-- Link to add a new SaaS Product -->
+    <p><a href="add_product.php">Add New SaaS Product</a></p>
+
+    <!-- Customer Registration Form -->
+    <h4>Register a Customer</h4>
     <form action="core/handleForms.php" method="POST">
-        <p><label for="FullName">Full Name </label><input type="text" name="FullName" required></p>
-        <p><label for="Email">Email </label><input type="email" name="email" required></p>
-        <p><label for="SaaS">Saas Products </label>
-            <select name="SaaS" id="SaaS" onchange="showOtherTechStack(this)">
-                <option value="JavaScript">SaaS 1</option>
-                <option value="Python">SaaS 2</option>
-                <option value="Java">SaaS 3</option>
-                <option value="C#">SaaS 4</option>
-                <option value="PHP">SaaS 5</option>
-                <option value="Ruby">SaaS 6</option>
-                <option value="Go">SaaS 7</option>
-                <option value="Rust">SaaS 8</option>
-                <option value="Other">Other</option>
+        <p><label for="customerName">Full Name </label><input type="text" name="customerName" required></p>
+        <p><label for="email">Email </label><input type="email" name="email" required></p>
+        <p><label for="product_id">Select SaaS Product </label>
+            <select name="product_id" required>
+                <?php
+                require '../config/dbconfig.php';
+                $stmt = $pdo->query("SELECT product_id, product_name FROM SaaS_Products");
+                while ($row = $stmt->fetch()) {
+                    echo "<option value='" . $row['product_id'] . "'>" . htmlspecialchars($row['product_name']) . "</option>";
+                }
+                ?>
             </select>
         </p>
-        <p id="otherTechStackField" style="display:none;">
-            <label for="OtherTechStack">Please specify: </label>
-            <input type="text" name="OtherTechStack" id="OtherTechStack" placeholder="Enter your tech stack">
-        </p>
-        <p><label for="YearsExp">Years of Experience </label><input type="number" name="YearsExp" min="0" required></p>
-        <p><label for="Education">Highest Education </label><input type="text" name="Education" required></p>
-        <p><label for="Portfolio">Portfolio URL </label><input type="url" name="Portfolio" placeholder="https://example.com" required></p>
-        <p><input type="submit" name="insertNewSoftwareEngBtn" value="Register"></p>
+        <p><label for="subscription_start_date">Subscription Start Date </label><input type="date" name="subscription_start_date" required></p>
+        <p><label for="subscription_end_date">Subscription End Date </label><input type="date" name="subscription_end_date" required></p>
+        <p><input type="submit" name="insertCustomer" value="Register Customer"></p>
     </form>
+
+    <!-- View Customers Link -->
+    <p><a href="view_customers.php">View All Customers</a></p>
+
     <script src="js/scripts.js"></script>
 </body>
 </html>

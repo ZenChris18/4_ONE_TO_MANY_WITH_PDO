@@ -1,35 +1,45 @@
-<?php 
-require_once 'dbconfig.php';
+<?php
+require_once '../config/dbconfig.php';
 
-if (isset($_POST['insertNewSoftwareEngBtn'])) {
-    $fullName = $_POST['FullName'];
+if (isset($_POST['insertCustomer'])) {
+    // Handle customer registration
+    $customerName = $_POST['customerName'];
     $email = $_POST['email'];
-    $techStack = $_POST['TechStack'];
-    $yearsExp = $_POST['YearsExp'];
-    $education = $_POST['Education'];
-    $portfolioUrl = $_POST['Portfolio'];
+    $product_id = $_POST['product_id'];
+    $start_date = $_POST['subscription_start_date'];
+    $end_date = $_POST['subscription_end_date'];
 
-    if (empty($fullName) || empty($email) || empty($techStack) || empty($yearsExp) || empty($education) || empty($portfolioUrl)) {
-        echo "All fields are required.";
-        exit;
-    }
-
-    $query = "INSERT INTO software_engineers (fullname, email, tech_stack, years_of_exp, highest_education, portfolio_url) 
-              VALUES (:fullname, :email, :tech_stack, :years_of_exp, :highest_education, :portfolio_url)";
-
+    $query = "INSERT INTO Customers (customer_name, email, product_id, subscription_start_date, subscription_end_date)
+              VALUES (:customer_name, :email, :product_id, :start_date, :end_date)";
     $stmt = $pdo->prepare($query);
-
-    $stmt->bindParam(':fullname', $fullName);
+    $stmt->bindParam(':customer_name', $customerName);
     $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':tech_stack', $techStack);
-    $stmt->bindParam(':years_of_exp', $yearsExp);
-    $stmt->bindParam(':highest_education', $education);
-    $stmt->bindParam(':portfolio_url', $portfolioUrl);
+    $stmt->bindParam(':product_id', $product_id);
+    $stmt->bindParam(':start_date', $start_date);
+    $stmt->bindParam(':end_date', $end_date);
 
     if ($stmt->execute()) {
-        echo "Record added successfully!";
+        echo "Customer registered successfully!";
     } else {
-        echo "Unable to add record.";
+        echo "Error registering customer.";
+    }
+}
+
+if (isset($_POST['insertProduct'])) {
+    // Handle product addition
+    $productName = $_POST['product_name'];
+    $companyName = $_POST['company_name'];
+
+    $query = "INSERT INTO SaaS_Products (product_name, company_name)
+              VALUES (:product_name, :company_name)";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':product_name', $productName);
+    $stmt->bindParam(':company_name', $companyName);
+
+    if ($stmt->execute()) {
+        echo "Product added successfully!";
+    } else {
+        echo "Error adding product.";
     }
 }
 ?>
