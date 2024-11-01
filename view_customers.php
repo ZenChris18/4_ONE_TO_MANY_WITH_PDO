@@ -26,13 +26,12 @@ include './core/dbconfig.php';
         </thead>
         <tbody>
             <?php
-            // Ordering by customer_id to show customers in order of their ID
             $query = "SELECT Customers.customer_id, Customers.customer_name, Customers.email, 
                              Customers.subscription_start_date, Customers.subscription_end_date,
                              SaaS_Products.product_name 
                       FROM Customers
                       JOIN SaaS_Products ON Customers.product_id = SaaS_Products.product_id
-                      ORDER BY Customers.customer_id ASC";  // Ensure the order is by customer_id
+                      ORDER BY Customers.customer_id ASC"; 
             $stmt = $pdo->query($query);
             while ($row = $stmt->fetch()) {
                 echo "<tr>";

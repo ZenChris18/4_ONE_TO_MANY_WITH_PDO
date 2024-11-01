@@ -18,10 +18,10 @@ if (isset($_POST['insertCustomer'])) {
     $stmt->bindParam(':end_date', $end_date);
 
     if ($stmt->execute()) {
-        echo "Customer registered successfully!";
+        header("Location: ../view_customers.php");
+        exit();
     } else {
-        $errorInfo = $stmt->errorInfo();
-        echo "Error registering customer: " . htmlspecialchars($errorInfo[2]);
+        echo "Error registering customer.";
     }
 }
 
@@ -36,10 +36,11 @@ if (isset($_POST['insertProduct'])) {
     $stmt->bindParam(':team_name', $teamName);
 
     if ($stmt->execute()) {
-        echo "Product added successfully!";
+
+        header("Location: ../add_product.php");
+        exit(); 
     } else {
-        $errorInfo = $stmt->errorInfo();
-        echo "Error adding product: " . htmlspecialchars($errorInfo[2]);
+        echo "Error adding product.";
     }
 }
 
@@ -64,10 +65,10 @@ if (isset($_POST['updateCustomer'])) {
     $stmt->bindParam(':end_date', $end_date);
 
     if ($stmt->execute()) {
-        echo "Customer updated successfully!";
+        header("Location: ../view_customers.php");
+        exit();
     } else {
-        $errorInfo = $stmt->errorInfo();
-        echo "Error updating customer: " . htmlspecialchars($errorInfo[2]);
+        echo "Error updating customer.";
     }
 }
 ?>
