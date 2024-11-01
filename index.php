@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaaS Company Registration</title>
+    <title>Register a Customer - SaaS Company</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h3>Welcome to the SaaS Company. Register a Customer or Add a SaaS Product</h3>
+    <h3>Register a Customer</h3>
 
     <!-- Link to add a new SaaS Product -->
     <p><a href="add_product.php">Add New SaaS Product</a></p>
