@@ -15,22 +15,41 @@
     <!-- Customer Registration Form -->
     <h4>Register a Customer</h4>
     <form action="core/handleForms.php" method="POST">
-        <p><label for="customerName">Full Name </label><input type="text" name="customerName" required></p>
-        <p><label for="email">Email </label><input type="email" name="email" required></p>
-        <p><label for="product_id">Select SaaS Product </label>
-            <select name="product_id" required>
-                <?php
-                require './core/dbconfig.php';
-                $stmt = $pdo->query("SELECT product_id, product_name FROM SaaS_Products");
-                while ($row = $stmt->fetch()) {
-                    echo "<option value='" . $row['product_id'] . "'>" . htmlspecialchars($row['product_name']) . "</option>";
-                }
-                ?>
-            </select>
-        </p>
-        <p><label for="subscription_start_date">Subscription Start Date </label><input type="date" name="subscription_start_date" required></p>
-        <p><label for="subscription_end_date">Subscription End Date </label><input type="date" name="subscription_end_date" required></p>
-        <p><input type="submit" name="insertCustomer" value="Register Customer"></p>
+        <table>
+            <tr>
+                <td><label for="customerName">Full Name</label></td>
+                <td><input type="text" name="customerName" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td><label for="product_id">Select SaaS Product</label></td>
+                <td>
+                    <select name="product_id" required>
+                        <?php
+                        require './core/dbconfig.php';
+                        $stmt = $pdo->query("SELECT product_id, product_name FROM SaaS_Products");
+                        while ($row = $stmt->fetch()) {
+                            echo "<option value='" . $row['product_id'] . "'>" . htmlspecialchars($row['product_name']) . "</option>";
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="subscription_start_date">Subscription Start Date</label></td>
+                <td><input type="date" name="subscription_start_date" required></td>
+            </tr>
+            <tr>
+                <td><label for="subscription_end_date">Subscription End Date</label></td>
+                <td><input type="date" name="subscription_end_date" required></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" name="insertCustomer" value="Register Customer"></td>
+            </tr>
+        </table>
     </form>
 
     <!-- View Customers Link -->

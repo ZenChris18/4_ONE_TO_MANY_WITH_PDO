@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add SaaS Product</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <h3>Add New SaaS Product</h3>
@@ -14,7 +15,7 @@
     </form>
 
     <h4>Current SaaS Products and Subscribed Customers</h4>
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th>Product Name</th>

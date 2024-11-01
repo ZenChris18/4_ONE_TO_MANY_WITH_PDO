@@ -1,8 +1,7 @@
 <?php
-require_once './core/dbconfig.php';
+require_once './dbconfig.php';
 
 if (isset($_POST['insertCustomer'])) {
-    // Handle customer registration
     $customerName = $_POST['customerName'];
     $email = $_POST['email'];
     $product_id = $_POST['product_id'];
@@ -21,12 +20,12 @@ if (isset($_POST['insertCustomer'])) {
     if ($stmt->execute()) {
         echo "Customer registered successfully!";
     } else {
-        echo "Error registering customer.";
+        $errorInfo = $stmt->errorInfo();
+        echo "Error registering customer: " . htmlspecialchars($errorInfo[2]);
     }
 }
 
 if (isset($_POST['insertProduct'])) {
-    // Handle product addition
     $productName = $_POST['product_name'];
     $teamName = $_POST['team_name'];
 
@@ -39,12 +38,12 @@ if (isset($_POST['insertProduct'])) {
     if ($stmt->execute()) {
         echo "Product added successfully!";
     } else {
-        echo "Error adding product.";
+        $errorInfo = $stmt->errorInfo();
+        echo "Error adding product: " . htmlspecialchars($errorInfo[2]);
     }
 }
 
 if (isset($_POST['updateCustomer'])) {
-    // Handle customer update
     $customer_id = $_POST['customer_id'];
     $customerName = $_POST['customerName'];
     $email = $_POST['email'];
@@ -67,8 +66,8 @@ if (isset($_POST['updateCustomer'])) {
     if ($stmt->execute()) {
         echo "Customer updated successfully!";
     } else {
-        echo "Error updating customer.";
+        $errorInfo = $stmt->errorInfo();
+        echo "Error updating customer: " . htmlspecialchars($errorInfo[2]);
     }
 }
-
 ?>
