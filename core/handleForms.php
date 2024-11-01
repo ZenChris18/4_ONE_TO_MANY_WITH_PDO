@@ -1,4 +1,7 @@
 <?php
+// error checking
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require_once './dbconfig.php';
 
 if (isset($_POST['insertCustomer'])) {
@@ -36,7 +39,6 @@ if (isset($_POST['insertProduct'])) {
     $stmt->bindParam(':team_name', $teamName);
 
     if ($stmt->execute()) {
-
         header("Location: ../add_product.php");
         exit(); 
     } else {

@@ -1,7 +1,7 @@
 CREATE TABLE SaaS_Products (
-    product_id INT PRIMARY KEY,
-    product_name VARCHAR(255),
-    team_name VARCHAR(255)
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(255) NOT NULL,
+    team_name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Customers (
