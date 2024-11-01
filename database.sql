@@ -1,7 +1,7 @@
 CREATE TABLE SaaS_Products (
-    product_id INT AUTO_INCREMENT PRIMARY KEY,
-    product_name VARCHAR(255) NOT NULL,
-    company_name VARCHAR(255) NOT NULL
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(255),
+    team_name VARCHAR(255)
 );
 
 CREATE TABLE Customers (
@@ -13,3 +13,67 @@ CREATE TABLE Customers (
     subscription_end_date DATE NOT NULL,
     FOREIGN KEY (product_id) REFERENCES SaaS_Products(product_id)
 );
+
+INSERT INTO SaaS_Products (product_id, product_name, team_name) VALUES
+(1, 'Project Manager Pro', 'Team Alpha'),
+(2, 'Time Tracker Plus', 'Team Beta'),
+(3, 'Invoice Master', 'Team Gamma'),
+(4, 'Social Media Booster', 'Team Delta'),
+(5, 'CRM Smart', 'Team Epsilon'),
+(6, 'Employee Hub', 'Team Zeta'),
+(7, 'E-Commerce Helper', 'Team Eta'),
+(8, 'Data Insight AI', 'Team Theta'),
+(9, 'Customer Feedback', 'Team Iota'),
+(10, 'Task Automator', 'Team Kappa');
+
+INSERT INTO Customers (customer_name, email, product_id, subscription_start_date, subscription_end_date) VALUES
+('Alice Johnson', 'alice.johnson@example.com', 1, '2023-01-01', '2024-01-01'),
+('Bob Smith', 'bob.smith@example.com', 1, '2023-02-01', '2024-02-01'),
+('Carol White', 'carol.white@example.com', 1, '2023-03-01', '2024-03-01'),
+('David Brown', 'david.brown@example.com', 1, '2023-04-01', '2024-04-01'),
+('Eve Davis', 'eve.davis@example.com', 1, '2023-05-01', '2024-05-01'),
+('Frank Wilson', 'frank.wilson@example.com', 2, '2023-01-15', '2024-01-15'),
+('Grace Lee', 'grace.lee@example.com', 2, '2023-02-15', '2024-02-15'),
+('Henry Martin', 'henry.martin@example.com', 2, '2023-03-15', '2024-03-15'),
+('Ivy Clark', 'ivy.clark@example.com', 2, '2023-04-15', '2024-04-15'),
+('Jack Lewis', 'jack.lewis@example.com', 2, '2023-05-15', '2024-05-15'),
+('Laura Kim', 'laura.kim@example.com', 3, '2023-01-25', '2024-01-25'),
+('Mike Torres', 'mike.torres@example.com', 3, '2023-02-25', '2024-02-25'),
+('Nina Wang', 'nina.wang@example.com', 3, '2023-03-25', '2024-03-25'),
+('Oscar Reed', 'oscar.reed@example.com', 3, '2023-04-25', '2024-04-25'),
+('Paula Moore', 'paula.moore@example.com', 3, '2023-05-25', '2024-05-25'),
+('Quincy Hall', 'quincy.hall@example.com', 4, '2023-01-30', '2024-01-30'),
+('Rachel Adams', 'rachel.adams@example.com', 4, '2023-02-28', '2024-02-28'),
+('Steve Parker', 'steve.parker@example.com', 4, '2023-03-30', '2024-03-30'),
+('Tina Green', 'tina.green@example.com', 4, '2023-04-30', '2024-04-30'),
+('Ursula West', 'ursula.west@example.com', 4, '2023-05-30', '2024-05-30'),
+('Victor Young', 'victor.young@example.com', 5, '2023-01-10', '2024-01-10'),
+('Wendy Cook', 'wendy.cook@example.com', 5, '2023-02-10', '2024-02-10'),
+('Xander Scott', 'xander.scott@example.com', 5, '2023-03-10', '2024-03-10'),
+('Yasmine Long', 'yasmine.long@example.com', 5, '2023-04-10', '2024-04-10'),
+('Zachery Cole', 'zachery.cole@example.com', 5, '2023-05-10', '2024-05-10'),
+('Aaron Blake', 'aaron.blake@example.com', 6, '2023-01-15', '2024-01-15'),
+('Betty Ford', 'betty.ford@example.com', 6, '2023-02-15', '2024-02-15'),
+('Cathy Quinn', 'cathy.quinn@example.com', 6, '2023-03-15', '2024-03-15'),
+('Donovan Ray', 'donovan.ray@example.com', 6, '2023-04-15', '2024-04-15'),
+('Elena Ruiz', 'elena.ruiz@example.com', 6, '2023-05-15', '2024-05-15'),
+('George Bush', 'george.bush@example.com', 7, '2023-01-20', '2024-01-20'),
+('Holly Fisher', 'holly.fisher@example.com', 7, '2023-02-20', '2024-02-20'),
+('Ivan Bell', 'ivan.bell@example.com', 7, '2023-03-20', '2024-03-20'),
+('Judy Page', 'judy.page@example.com', 7, '2023-04-20', '2024-04-20'),
+('Kevin Frost', 'kevin.frost@example.com', 7, '2023-05-20', '2024-05-20'),
+('Lara Stone', 'lara.stone@example.com', 8, '2023-01-25', '2024-01-25'),
+('Mark Steele', 'mark.steele@example.com', 8, '2023-02-25', '2024-02-25'),
+('Nate Porter', 'nate.porter@example.com', 8, '2023-03-25', '2024-03-25'),
+('Olivia King', 'olivia.king@example.com', 8, '2023-04-25', '2024-04-25'),
+('Peter Wright', 'peter.wright@example.com', 8, '2023-05-25', '2024-05-25'),
+('Alice Rivera', 'alice.rivera@example.com', 9, '2023-01-10', '2024-01-10'),
+('Bob Nash', 'bob.nash@example.com', 9, '2023-02-10', '2024-02-10'),
+('Cathy Myers', 'cathy.myers@example.com', 9, '2023-03-10', '2024-03-10'),
+('Dan Bishop', 'dan.bishop@example.com', 9, '2023-04-10', '2024-04-10'),
+('Ella Chen', 'ella.chen@example.com', 9, '2023-05-10', '2024-05-10'),
+('Faye Shaw', 'faye.shaw@example.com', 10, '2023-01-10', '2024-01-10'),
+('Greg Moss', 'greg.moss@example.com', 10, '2023-02-10', '2024-02-10'),
+('Hannah Owens', 'hannah.owens@example.com', 10, '2023-03-10', '2024-03-10'),
+('Isaac Paul', 'isaac.paul@example.com', 10, '2023-04-10', '2024-04-10'),
+('Jane Ray', 'jane.ray@example.com', 10, '2023-05-10', '2024-05-10');
