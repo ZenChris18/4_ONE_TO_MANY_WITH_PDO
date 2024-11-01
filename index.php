@@ -55,6 +55,5 @@
     <!-- View Customers Link -->
     <p><a href="view_customers.php">View All Customers</a></p>
 
-    <script src="js/scripts.js"></script>
 </body>
 </html>
