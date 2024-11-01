@@ -20,7 +20,7 @@
         <p><label for="product_id">Select SaaS Product </label>
             <select name="product_id" required>
                 <?php
-                require '../config/dbconfig.php';
+                require './core/dbconfig.php';
                 $stmt = $pdo->query("SELECT product_id, product_name FROM SaaS_Products");
                 while ($row = $stmt->fetch()) {
                     echo "<option value='" . $row['product_id'] . "'>" . htmlspecialchars($row['product_name']) . "</option>";

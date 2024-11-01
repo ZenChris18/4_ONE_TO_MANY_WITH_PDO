@@ -1,5 +1,5 @@
 <?php
-require '../core/dbconfig.php';
+require './core/dbconfig.php';
 
 // Check if customer ID is provided
 if (!isset($_GET['customer_id'])) {
